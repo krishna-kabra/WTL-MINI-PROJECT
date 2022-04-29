@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+ <br>
+  <hr>
+  <br>
+<meta charset="utf-8">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</style>
+
+<form action="/uploader" method="post" enctype="multipart/form-data">
+  Enter a image<input type="file" name="file" >
+  <button type="submit" class="btn btn-primary">submit</button>
+</form>
+
+      <hr> 
+<div class="container-fluid">
+
+
+          
+  <table class="table table-hover">
+  <a href="/edit/0"><button class="btn btn-primary">Add New Food</button></a>
+  <a href="/logout"><button class="btn btn-primary">Logout</button></a>
+  
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Image-Name</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    {% for data in data%}
+    <tbody>
+      <tr>
+      <td>{{data.id}}</td>
+        <td>{{data.name}}</td>
+        <td>{{data.price}}</td>
+        <td>{{data.image}}</td>
+        <td><a href="/edit/{{data.id}}"><button class="btn btn-primary">Edit</button></a></td>
+        <td><a href="/delete/{{data.id}}"><button class="btn btn-primary">delete</button></a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+{% endblock %}

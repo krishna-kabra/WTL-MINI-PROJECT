@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+ <br>
+  <hr>
+  <br>
+<meta charset="utf-8">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</style>
+<div class="container-fluid">
+          
+  <table class="table table-hover">
+  <a href="/edit/0"><button class="btn btn-primary">Add New Food</button></a>
+  <a href="/logout"><button class="btn btn-primary">Logout</button></a>
+  
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Food</th>
+        <th>View</th>
+      </tr>
+    </thead>
+    {% for data in data%}
+    <tbody>
+      <tr>
+      <td>{{data.id}}</td>
+        <td>{{data.c_name}}</td>
+        <td>{{data.email}}</td>
+        <td>{{data.phone}}</td>
+        <td>{{data.p_name}}</td>
+        <td><a href="/view/{{data.id}}"><button class="btn btn-primary">View</button></a></td>
+        <td><a href="/delete1/{{data.id}}"><button class="btn btn-primary">Delete</button></a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+{% endblock %}
